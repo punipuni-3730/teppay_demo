@@ -1,6 +1,6 @@
 {
   "name": "teppay demo",
-  "short_name": "teppay",
+  "short_name": "teppay demo",
   "lang": "ja",
   "start_url": "/",
   "display": "standalone",
@@ -26,4 +26,5 @@
     }
   ]
 }
+
 
