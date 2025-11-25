@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#69caba">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <title>teppay demo</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="notch"></div>
+
+        <!-- メインコンテンツ -->
+        <div class="scroll-content">
+            <div class="header-bg">
+                <div class="header-top">
+                    <div class="logo-pill">teppay</div>
+                    <div class="bell-icon"><i class="fa-regular fa-bell"></i></div>
+                </div>
+            </div>
+
+            <div class="card-wrapper">
+                <div class="side-tab left">
+                    <i class="fa-solid fa-train-subway" style="transform: rotate(90deg);"></i>
+                    交通系IC
+                </div>
+                <div class="main-card">
+                    <div class="barcode-container" onclick="showPaymentComplete()">
+                        <div class="barcode"></div>
+                    </div>
+                    <div class="balance-info">
+                        <div class="balance-label-row">
+                            <span class="mini-logo">teppay</span> 残高 <i class="fa-regular fa-eye-slash" style="margin-left: 5px; color: #999;"></i>
+                        </div>
+                        <div class="balance-row">
+                            <div class="amount">0<span> 円</span></div>
+                            <div class="add-money-btn" onclick="addMoney()">
+                                <div class="add-icon-circle"><i class="fa-solid fa-plus add-icon"></i></div>
+                                入金
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="footer-item">
+                            <div class="point-val">525 <span style="font-size:10px;">pt</span></div>
+                            <div class="point-sub">うち限定 200pt</div>
+                        </div>
+                        <div class="footer-item" style="position: relative;">
+                            <div class="point-val">商品券 1,300<span style="font-size:10px;">円分</span></div>
+                            <div class="point-sub">イカ市バリュー ほか3枚</div>
+                            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-tab right">
+                    <i class="fa-regular fa-credit-card" style="transform: rotate(90deg);"></i>
+                    ビュンカードで支払う
+                </div>
+            </div>
+
+            <div class="action-grid">
+                <div class="action-card"><i class="fa-solid fa-arrow-down action-icon"></i><div class="action-text">交通系ICに残高移動</div></div>
+                <div class="action-card">
+                    <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                        <i class="fa-solid fa-arrow-down" style="font-size: 16px;"></i><i class="fa-solid fa-arrow-up" style="font-size: 16px;"></i>
+                    </div>
+                    <div class="action-icon-pill">teppay</div><div class="action-text">お金を送る・受取る</div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <div class="section-title">お知らせ</div>
+                <div class="section-link">一覧 <i class="fa-solid fa-chevron-right"></i></div>
+            </div>
+            <div class="horizontal-scroll">
+                <div class="menu-square"><i class="fa-regular fa-credit-card menu-icon-img"></i><div class="menu-text">バーチャル<br>カード</div></div>
+                <div class="menu-square"><i class="fa-solid fa-expand menu-icon-img"></i><div class="menu-text">コードを<br>読み取り</div></div>
+                <div class="menu-square"><i class="fa-regular fa-id-card menu-icon-img"></i><div class="menu-text">残高で<br>定期券購入</div></div>
+                <div class="menu-square" onclick="showHistory()"><i class="fa-solid fa-list-ul menu-icon-img"></i><div class="menu-text">利用履歴</div></div>
+                <div class="menu-square" onclick="openSettings()"><i class="fa-solid fa-gear menu-icon-img"></i><div class="menu-text">設定</div></div>
+            </div>
+
+            <div class="section-header">
+                <div class="section-title">お知らせ</div>
+                <div class="section-link">一覧 <i class="fa-solid fa-chevron-right"></i></div>
+            </div>
+             <div class="horizontal-scroll">
+                <div class="menu-square" style="width: 200px; flex: 0 0 auto; align-items: flex-start; background: #fff;" onclick="openInfoScreen()">
+                    <div style="width: 100%; height: 50px; background: #eee; border-radius: 8px; margin-bottom: 5px;"></div>
+                    <div class="menu-text" style="text-align: left;">このサイトでできること</div>
+                </div>
+                <div class="menu-square" style="width: 200px; flex: 0 0 auto; align-items: flex-start; background: #fff;" onclick="window.location.assign('https://x.com/arimagawa_m')">
+                    <div style="width: 100%; height: 50px; background: #eee; border-radius: 8px; margin-bottom: 5px;"><img src="https://pbs.twimg.com/profile_images/1955656442733887488/L4YzcmU__400x400.jpg" style="height: 100%;"></div>
+                    <div class="menu-text" style="text-align: left;">しゃけが作った！</div>
+                </div>
+
+            </div>
+             <div style="height: 100px;"></div>
+        </div>
+
+        <div class="bottom-nav-container">
+            <div class="nav-items">
+                <div class="nav-item"><i class="fa-solid fa-ticket nav-icon"></i>交通系IC</div>
+                <div class="nav-item active"><div class="nav-teppay-icon">t</div>teppay</div>
+                <div class="nav-item"><i class="fa-regular fa-user nav-icon"></i>アカウント</div>
+            </div>
+            <div class="pay-btn" onclick="openPayScreen()">
+                <i class="fa-solid fa-qrcode pay-icon"></i><span class="pay-text">支払う</span>
+            </div>
+        </div>
+
+        <!-- 支払いコード画面 -->
+        <div class="slide-up-screen" id="payScreen">
+            <div class="pay-code-header">
+                <div class="pay-header-text">teppayでお支払い</div>
+                <i class="fa-solid fa-xmark close-x-btn" onclick="closePayScreen()"></i>
+            </div>
+            <div class="content-scroll-area">
+                <div class="pay-code-container">
+                    <div class="pay-title">QRコードを提示</div>
+                    <div class="pay-barcode-wrapper" onclick="triggerPaymentFromCode()">
+                        <div class="barcode" id="payScreenBarcode"></div>
+                    </div>
+                    <div class="pay-barcode-num">9000 8181 8892 6523 9698 2225</div>
+                    
+                    <div class="qr-wrapper" onclick="triggerPaymentFromCode()">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://www.teppay.jp/" alt="QR Code" class="qr-img">
+                    </div>
+                    <div class="valid-time">残り有効期限 0:19</div>
+                </div>
+                
+                <div style="padding: 0 20px;"> 
+                    <div class="pay-method-card">
+                        <div class="pay-method-label">お支払い方法</div>
+                        <div class="balance-label-row" style="margin-bottom:5px;">
+                            <span class="mini-logo">teppay</span> 残高 <i class="fa-regular fa-eye-slash" style="margin-left: 5px; color: #999;"></i>
+                        </div>
+                        <div class="pay-balance-row">
+                            <div class="pay-balance-amount amount">0<span> 円</span></div>
+                            <div class="pay-add-btn">入金 ＋</div>
+                        </div>
+                        <div style="margin-top:10px; font-size:12px; color:#666;">525pt</div>
+                    </div>
+                    
+                    <div style="width:100%; font-size:12px; color:#666; margin-bottom:10px;">利用するバリチケ・商品券</div>
+                    <div style="width:100%; font-weight:bold; margin-bottom:30px;">イカ市バリチケ</div>
+                    
+                    <div style="color:#009988; font-weight:bold; font-size:14px; display:flex; align-items:center;">
+                        <i class="fa-solid fa-camera" style="margin-right:5px;"></i> コードをスキャンして支払うには？
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 設定画面 -->
+        <div class="slide-in-screen" id="settingsScreen">
+            <div class="page-header">
+                <i class="fa-solid fa-chevron-left back-btn" onclick="closeSettings()"></i>
+                <div class="page-title">設定</div>
+            </div>
+            <div class="settings-list">
+                <div class="settings-item" onclick="openCustomShopScreen()">
+                    <span class="settings-text">カスタム店舗設定</span>
+                    <i class="fa-solid fa-chevron-right" style="color:#ccc;"></i>
+                </div>
+                <div class="settings-item" onclick="showResetConfirm()">
+                    <span class="settings-text danger">データをリセット</span>
+                    <i class="fa-solid fa-chevron-right" style="color:#ccc;"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- カスタム店舗設定画面 -->
+        <div class="slide-in-screen" id="customShopScreen">
+            <div class="page-header">
+                <i class="fa-solid fa-chevron-left back-btn" onclick="closeCustomShopScreen()"></i>
+                <div class="page-title">カスタム店舗設定</div>
+            </div>
+            <div class="content-scroll-area">
+                <div class="custom-shop-list" id="customShopList">
+                    <!-- JSで生成 -->
+                </div>
+                
+                <div class="custom-shop-form" id="customShopForm">
+                    <div style="font-weight:bold; margin-bottom:15px;">新規登録</div>
+                    <div class="form-group">
+                        <label class="form-label">店舗名</label>
+                        <input type="text" class="form-input" id="shopNameInput" placeholder="例: マイショップ">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">アイコン文字 (1文字)</label>
+                        <input type="text" class="form-input" id="shopCharInput" maxlength="1" placeholder="例: 店">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">テーマカラー</label>
+                        <div class="color-picker-row">
+                            <div class="color-picker-group">
+                                <span style="font-size:10px; color:#666;">文字色</span>
+                                <input type="color" class="form-color" id="shopColorInput" value="#333333">
+                            </div>
+                            <div class="color-picker-group">
+                                <span style="font-size:10px; color:#666;">背景色</span>
+                                <input type="color" class="form-color" id="shopBgInput" value="#ffffff">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-shop-btn" onclick="addCustomShop()">追加する</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 利用履歴画面 -->
+        <div class="slide-in-screen" id="historyScreen">
+            <div class="page-header">
+                <i class="fa-solid fa-chevron-left back-btn" onclick="closeHistory()"></i>
+                <div class="page-title">利用履歴</div>
+            </div>
+            <div class="history-list" id="historyList"></div>
+        </div>
+
+        <!-- お知らせ詳細画面 -->
+        <div class="slide-in-screen" id="infoScreen">
+            <div class="page-header">
+                <i class="fa-solid fa-chevron-left back-btn" onclick="closeInfoScreen()"></i>
+                <div class="page-title">お知らせ</div>
+            </div>
+            <div class="content-scroll-area">
+                <div class="info-content">
+                    <div class="info-title">このサイトでできること</div>
+                    <div class="info-date">2025.11.26</div>
+                    <div class="info-body">
+                        teppayっぽい機能を体験できます!<br>
+                        設定で好きな店舗名やアイコンを登録することもできます。<br>
+                        実際に決済が行われることはありません。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 支払い完了画面 -->
+        <div class="slide-in-screen" id="completeScreen">
+            <div class="complete-content-scroll">
+                <div class="complete-header">支払い完了</div>
+                <div class="shop-info">
+                    <div class="shop-icon" id="shopIcon"></div>
+                    <div class="shop-name" id="shopName"></div>
+                    <div class="payment-date" id="paymentDate"></div>
+                </div>
+                <div class="payment-amount-section">
+                    <div class="payment-label">支払い額</div>
+                    <div class="payment-amount-display" id="paymentAmountDisplay">0<span>円</span></div>
+                    <div class="payment-label" style="margin-top: 20px;">支払い方法</div>
+                    <div class="teppay-row">
+                        <span>teppay</span>
+                        <span style="font-size: 12px; font-weight: normal; color: #666;">内訳 <i class="fa-solid fa-chevron-up"></i></span>
+                    </div>
+                    <div class="payment-details">
+                        <div class="detail-row"><span class="detail-label">イカ市バリチケ</span><span class="detail-value" id="detailTicket">0円分</span></div>
+                        <div class="detail-row"><span class="detail-label">teppayポイント(期間限定)</span><span class="detail-value" id="detailLimitPoint">0pt</span></div>
+                        <div class="detail-row"><span class="detail-label">teppayポイント</span><span class="detail-value" id="detailPoint">0pt</span></div>
+                    </div>
+                </div>
+                <div style="height:50px;"></div>
+            </div>
+            <div class="close-btn-fixed">
+                <button class="close-text-btn" onclick="closePaymentComplete()">とじる</button>
+            </div>
+        </div>
+
+        <!-- リセット確認モーダル -->
+        <div class="modal-overlay" id="resetModal">
+            <div class="confirm-box">
+                <div class="confirm-title">データの削除</div>
+                <div class="confirm-text">残高、利用履歴のデータを削除しますか?</div>
+                <div class="confirm-actions">
+                    <button class="confirm-btn cancel" onclick="closeResetConfirm()">いいえ</button>
+                    <button class="confirm-btn ok" onclick="executeReset()">はい</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js")
+            .catch(err => console.error("SW registration failed:", err));
+        }
+    </script>
+
+</body>
+</html>
