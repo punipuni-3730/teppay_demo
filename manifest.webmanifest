@@ -2,7 +2,7 @@
   "name": "teppay demo",
   "short_name": "teppay demo",
   "lang": "ja",
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#f8f9fa",
   "theme_color": "#69caba",
