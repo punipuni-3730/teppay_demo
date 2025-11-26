@@ -209,7 +209,7 @@
             document.getElementById('detailPoint').textContent = pt > 0 ? `${pt.toLocaleString()}pt` : '0pt';
 
             const audio = new Audio('teppay.mp3');
-            audio.play().catch(e => console.log('Audio play failed:', e));
+            audio.play();
 
             document.getElementById('completeScreen').classList.add('active');
         }
@@ -332,4 +332,5 @@
             initBalance();
             initCustomShops();
             document.body.addEventListener('touchstart', function() {}, {passive: true});
+
         });
